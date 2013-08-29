@@ -1,8 +1,3 @@
-require 'bundler/setup'
-Bundler.require
-
-require 'benchmark'
-
 class ShootoutAdapter
   def self.load libraries
     libraries.map do |library|
