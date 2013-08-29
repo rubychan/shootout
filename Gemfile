@@ -6,4 +6,4 @@ gem 'pygments.rb', ENV.fetch('PYGMENTSRB', '0.5.2')
 gem 'albino',      ENV.fetch('ALBINO',     '1.3.3')
 
 warn "!!! Make sure you install Pygments with: easy_install pygments"   if `which pygmentize`.chomp.empty?
-warn "!!! Make sure you install highlight with: brew install highlight" if `which highlights`.chomp.empty?
+warn "!!! Make sure you install highlight with: brew install highlight" if `which highlight`.chomp.empty?
