@@ -27,7 +27,7 @@ Please add instructions for your system.
 
 ## Run
 
-Then run `rake`. It takes 2-5 minutes to get this:
+To run the benchmark, just run `rake`. It takes 2-5 minutes to get this:
 
 ```
                        Welcome to
