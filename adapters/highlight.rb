@@ -1,7 +1,11 @@
 module Adapters
   class Highlight < ShootoutAdapter
+    def installed?
+      @installed ||= !`which highlightz`.empty?
+    end
+    
     def version
-      `highlight --version 2>&1`[/[\d.]+/]
+      installed? ? `highlight --version 2>&1`[/[\d.]+/] : 'n/a'
     end
     
     def name
@@ -9,6 +13,7 @@ module Adapters
     end
     
     def highlight file, source, language, format
+      return unless installed?
       return if format == 'null'
       return if format == 'text'
       
