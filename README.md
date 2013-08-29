@@ -1,14 +1,35 @@
-shootout
-========
+# shootout
 
-It benchmarks different syntax highlighters.
+…benchmarks different syntax highlighter libraries.
 
-To install, run `bundle`, and install [Pygments](http://pygments.org/) and [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html).
+## Install
+
+Make sure you have Ruby 2.0 and Python installed.
+
+`git clone https://github.com/rubychan/shootout.git` to get the code.
+
+Then, run `bundle` to install the necessary Gems.
+
+Optional: Install [Pygments](http://pygments.org/) and [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html).
+
+### Get Pygments and highlight
+
+#### OS X
+
+```
+[sudo] easy_install pygments
+brew install highlight
+```
+
+#### more systems
+
+Please add instructions for your system.
+
+## Run
 
 Then run `rake`. It takes 2-5 minutes to get this:
 
 ```
-
                        Welcome to
   ~~~ The Great Syntax Highlighter Shootout v1.0 ~~~
 
@@ -31,10 +52,16 @@ RUBY (353 kB)
 => html               1643 kB/s            185 kB/s            200 kB/s            214 kB/s            202 kB/s            489 kB/s
 ```
 
+## Configure
+
+You can adjust the benchmark using these environment variables:
+
 - `SHOOTERS`: A list of libraries that you want to test against each other. Defaults to all ones.
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
 - `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
+
+If you want to use a different version of an installed gem, you can set it like `ROUGE=0.3.5` _before_ the `rake`.
 
 Example:
 
@@ -56,3 +83,6 @@ HTML (1091 kB)
 => null               3015 kB/s                    
 => html                791 kB/s           1160 kB/s
 ```
+## License
+
+This is free and unencumbered software released into the public domain (see LICENSE).
