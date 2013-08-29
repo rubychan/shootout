@@ -12,16 +12,14 @@ Then, run `bundle` to install the necessary Gems.
 
 Optional: Install [Pygments](http://pygments.org/) and [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html).
 
-### Get Pygments and highlight
-
-#### OS X
+### OS X
 
 ```
 [sudo] easy_install pygments
 brew install highlight
 ```
 
-#### more systems
+### more systems
 
 Please add instructions for your system.
 
