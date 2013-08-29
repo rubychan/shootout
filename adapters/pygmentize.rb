@@ -1,7 +1,7 @@
 module Adapters
   class Pygmentize < ShootoutAdapter
     def installed?
-      @installed ||= !`which pygmentizez`.empty?
+      @installed ||= !`which pygmentize`.empty?
     end
     
     def version

@@ -1,7 +1,7 @@
 module Adapters
   class Highlight < ShootoutAdapter
     def installed?
-      @installed ||= !`which highlightz`.empty?
+      @installed ||= !`which highlight`.empty?
     end
     
     def version
