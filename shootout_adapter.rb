@@ -31,22 +31,13 @@ class ShootoutAdapter
     end
     
     # benchmark
-    n * source.size / Benchmark.realtime do
-      result = nil
-      n.times do
-        result = highlight file, source, language, format
-      end
-      if ENV['DEBUG'] == name
-        puts
-        puts result[/(?:.*\n){5}/], "\e[0m"
+    REPEATS * source.size / Benchmark.realtime do
+      REPEATS.times do
+        highlight file, source, language, format
       end
     end
   end
   
   def highlight file, source, language, format
-  end
-  
-  def n
-    ENV.fetch('N', 4).to_i
   end
 end
