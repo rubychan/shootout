@@ -1,6 +1,15 @@
 # shootout
 
-…benchmarks different syntax highlighter libraries.
+…benchmarks different syntax highlighter libraries, namely:
+
+- [CodeRay](https://github.com/rubychan/coderay)
+- [Rouge](https://github.com/jayferd/rouge)
+- [Albino](https://github.com/github/albino)
+- [Pygments.rb](https://github.com/tmm1/pygments.rb)
+- [Pygments](https://bitbucket.org/birkenfeld/pygments-main)
+- [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html)
+
+Feel free to add more libraries by writing an [adapter](https://github.com/rubychan/shootout/tree/master/adapters)!
 
 ## Install
 
