@@ -73,7 +73,7 @@ TEXT (0 kB)
 
 You can adjust the benchmark using these environment variables:
 
-- `SHOOTERS`: A list of libraries that you want to test against each other. Defaults to all ones.
+- `SHOOTERS`: A list of libraries that you want to test against each other. Defaults to `"CodeRay Rouge Albino Pygments.rb Pygmentize Highlight"`.
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
 - `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available for some highlighters, and is supposed to measure scanner/lexer time only.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
