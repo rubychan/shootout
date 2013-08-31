@@ -25,29 +25,39 @@ Please add instructions for your system.
 
 ## Run
 
-To run the benchmark, just run `rake`. It takes 2-5 minutes to get this:
+To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.0 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.1 ~~~
 
 using Ruby 2.0.0 and Python 2.7.5, repeating 2 times
 
-                  CodeRay 1.0.9         Rouge 0.4.0      pygmentize 1.6      Pygments 0.5.2        Albino 1.3.3      highlight 3.14
-HTML (1091 kB)
-=> text               2630 kB/s            274 kB/s            939 kB/s           1028 kB/s           1030 kB/s                    
-=> terminal            462 kB/s            259 kB/s            489 kB/s            509 kB/s            487 kB/s           1148 kB/s
-=> html                766 kB/s            209 kB/s            243 kB/s            246 kB/s            245 kB/s           1128 kB/s
+                  CodeRay 1.0.9         Rouge 0.4.0        Albino 1.3.3   Pygments.rb 0.5.2      pygmentize 1.6      highlight 3.14
+   C (218 kB)
+=> text               2674 kB/s            146 kB/s            267 kB/s            290 kB/s            265 kB/s                    
+=> terminal           1291 kB/s            140 kB/s            189 kB/s            205 kB/s            186 kB/s            792 kB/s
+=> html               1385 kB/s            124 kB/s            199 kB/s            220 kB/s            200 kB/s            785 kB/s
+
+HTML (218 kB)
+=> text               2446 kB/s            252 kB/s            761 kB/s           1046 kB/s            765 kB/s                    
+=> terminal            380 kB/s            238 kB/s            437 kB/s            524 kB/s            426 kB/s           1036 kB/s
+=> html                690 kB/s            190 kB/s            479 kB/s            595 kB/s            457 kB/s           1036 kB/s
 
 JSON (217 kB)
-=> text               3132 kB/s            268 kB/s            641 kB/s            820 kB/s            659 kB/s                    
-=> terminal            922 kB/s            253 kB/s            336 kB/s            401 kB/s            349 kB/s            528 kB/s
-=> html                892 kB/s            203 kB/s            313 kB/s            340 kB/s            389 kB/s            514 kB/s
+=> text               2832 kB/s            238 kB/s            637 kB/s            850 kB/s            641 kB/s                    
+=> terminal            746 kB/s            226 kB/s            354 kB/s            402 kB/s            347 kB/s            539 kB/s
+=> html                821 kB/s            173 kB/s            390 kB/s            467 kB/s            390 kB/s            533 kB/s
 
-RUBY (353 kB)
-=> text               2620 kB/s            206 kB/s            247 kB/s            265 kB/s            249 kB/s                    
-=> terminal            928 kB/s            200 kB/s            199 kB/s            217 kB/s            208 kB/s            491 kB/s
-=> html               1643 kB/s            185 kB/s            200 kB/s            214 kB/s            202 kB/s            489 kB/s
+RUBY (216 kB)
+=> text               3402 kB/s            273 kB/s            330 kB/s            395 kB/s            324 kB/s                    
+=> terminal           1009 kB/s            265 kB/s            267 kB/s            320 kB/s            266 kB/s            561 kB/s
+=> html               2174 kB/s            246 kB/s            278 kB/s            309 kB/s            278 kB/s            544 kB/s
+
+TEXT (0 kB)
+=> text                246 kB/s            698 kB/s              0 kB/s             39 kB/s              0 kB/s                    
+=> terminal            296 kB/s            353 kB/s              0 kB/s             59 kB/s              0 kB/s              3 kB/s
+=> html                 23 kB/s            714 kB/s              0 kB/s             27 kB/s              0 kB/s              3 kB/s
 ```
 
 ## Configure
@@ -58,13 +68,15 @@ You can adjust the benchmark using these environment variables:
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
 - `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
+- `METRIC=time`: Show measured times instead of speed.
+- `SIZE`: The size of the input, in bytes. Defaults to the size of the example files.
 
 If you want to use a different version of an installed gem, you can set it like `ROUGE=0.3.5` _before_ the `rake`.
 
 Example:
 
 ```bash
-CODERAY=1.1.0.rc4 rake N=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FORMATS="null html"
+CODERAY=1.1.0.rc5 rake REPEATS=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FORMATS="null html"
 ```
 
 outputs:
@@ -72,7 +84,7 @@ outputs:
 ```
 
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.0 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.1 ~~~
 
 using Ruby 2.0.0 and Python 2.7.5, repeating 2 times
 
