@@ -75,12 +75,12 @@ You can adjust the benchmark using these environment variables:
 
 - `SHOOTERS`: A list of libraries that you want to test against each other. Defaults to all ones.
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
-- `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available.
+- `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available for some highlighters, and is supposed to measure scanner/lexer time only.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
 - `METRIC=time`: Show measured times instead of speed.
 - `SIZE`: The size of the input, in bytes. Defaults to the size of the example files.
 
-If you want to use a different version of an installed gem, you can set it like `ROUGE=0.3.5` _before_ the `rake`.
+If you want to use a different version of an installed gem, you can set it with `ROUGE=0.3.5` _before_ the `rake`.
 
 Example:
 
@@ -91,11 +91,10 @@ CODERAY=1.1.0.rc5 rake REPEATS=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FOR
 outputs:
 
 ```
-
                        Welcome to
   ~~~ The Great Syntax Highlighter Shootout v1.1 ~~~
 
-using Ruby 2.0.0 and Python 2.7.5, repeating 2 times
+using Ruby 2.0.0 and Python 2.7.5, repeating 1 times
 
                   CodeRay 1.1.0      highlight 3.14
 HTML (1091 kB)
