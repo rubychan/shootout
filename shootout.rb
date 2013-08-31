@@ -5,7 +5,7 @@ Bundler.require
 require 'benchmark'
 require_relative 'shootout_adapter'
 
-SHOOTERS  = ENV.fetch('SHOOTERS',  'CodeRay Rouge Pygmentize Pygments.rb Albino Highlight').split
+SHOOTERS  = ENV.fetch('SHOOTERS',  'CodeRay Rouge Albino Pygments.rb Pygmentize Highlight').split
 LANGUAGES = ENV.fetch('LANGUAGES') { Dir[File.expand_path('../example-code/*', __FILE__)].map { |path| File.basename path, '.*' }.sort.join(' ') }.split
 FORMATS   = ENV.fetch('FORMATS',   'text terminal html').split # "null" is not supported by Pygments
 REPEATS   = ENV.fetch('REPEATS',   2).to_i
