@@ -21,18 +21,25 @@ class ShootoutAdapter
   
   def benchmark file, source, language, format
     # warmup and check
-    unless highlight file, 'test', language, format
+    unless highlight file, "test\n<42>", language, format
       return
     end
     
     # benchmark
-    REPEATS * source.size / Benchmark.realtime do
+    Benchmark.realtime do
       REPEATS.times do
         highlight file, source, language, format
       end
-    end
+    end / REPEATS
   end
   
   def highlight file, source, language, format
+  end
+  
+  def fast_ruby
+    # loading bundler results in something like:
+    #   RUBYOPT=-I~/.rvm/gems/ruby-2.0.0-p247@global/gems/bundler-1.3.5/lib -rbundler/setup
+    # which slows down ruby considerably. Use this one instead.
+    'RUBYOPT= ruby'
   end
 end
