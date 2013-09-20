@@ -12,6 +12,21 @@ module Adapters
     end
     
     module Formatters
+      class Null < LIBRARY::Formatter
+        # Output nothing.
+        tag 'null'
+        
+        def initialize(opts={})
+        end
+        
+        def stream(tokens, &b)
+          tokens.each do |tok, val|
+          end
+        end
+      end
+    end
+    
+    module Formatters
       class Text < LIBRARY::Formatter
         # Output as plain text.
         tag 'text'
