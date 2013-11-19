@@ -71,7 +71,7 @@ RUBY (216 kB)
 
 You can adjust the benchmark using these environment variables:
 
-- `SHOOTERS`: A list of libraries that you want to test against each other. Available are: `CodeRay`, `CodeRayExe`, `Rouge`, `Rougify`, `Albino`, `Pygments.rb`, `Pygmentize`, and `Highlight`. Defaults to `"CodeRay Rouge Pygments.rb"`.
+- `SHOOTERS`: A list of libraries that you want to test against each other. Available are: `CodeRay`, `CodeRayExe`, `Rouge`, `Rougify`, `Albino`, `Pygments.rb`, `Pygmentize`, and `Highlight`. Set to `all` to benchmark all of them. Defaults to `"CodeRay Rouge Pygments.rb"`.
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
 - `FORMATS`: A list of output formats/encoders. Defaults to `"terminal html"`. `text` and `null` are also available for some highlighters, and are supposed to measure scanner/lexer time only.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 5.
