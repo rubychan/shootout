@@ -13,7 +13,11 @@ module Adapters
     end
     
     def executable
-      "#{fast_ruby} -I ../rouge/lib/rouge ../rouge/bin/rougify"
+      if ENV['LOCAL_ROUGE']
+        "#{fast_ruby} -I ../rouge/lib/rouge ../rouge/bin/rougify"
+      else
+        "#{fast_ruby} -S rougify"
+      end
     end
     
     def highlight file, source, language, format

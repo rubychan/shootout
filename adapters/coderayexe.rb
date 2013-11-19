@@ -13,7 +13,11 @@ module Adapters
     end
     
     def executable
-      "#{fast_ruby} -I ../coderay/lib/coderay ../coderay/bin/coderay"
+      if ENV['LOCAL_CODERAY']
+        "#{fast_ruby} -I ../coderay/lib/coderay ../coderay/bin/coderay"
+      else
+        "#{fast_ruby} -S coderay"
+      end
     end
     
     def highlight file, source, language, format
