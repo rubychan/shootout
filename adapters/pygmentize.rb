@@ -15,6 +15,7 @@ module Adapters
     def highlight file, source, language, format
       return unless installed?
       return if format == 'null'
+      
       `pygmentize -l #{language} -f #{format} #{file}`
     end
   end

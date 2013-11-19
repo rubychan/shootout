@@ -10,6 +10,7 @@ module Adapters
     
     def highlight file, source, language, format
       return if format == 'null'
+      
       LIBRARY.highlight(source, lexer: language, formatter: format)
     end
   end

@@ -13,12 +13,14 @@ module Adapters
     end
     
     def executable
-      "#{fast_ruby} -I ../lib/coderay ../coderay/bin/coderay"
+      "#{fast_ruby} -I ../coderay/lib/coderay ../coderay/bin/coderay"
     end
     
     def highlight file, source, language, format
       return unless installed?
+      
       format = 'HTML' if format == 'html' && version >= '1.1.0'
+      
       `#{executable} -#{language} #{file} -#{format}`
     end
   end

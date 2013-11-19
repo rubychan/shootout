@@ -8,6 +8,7 @@ module Adapters
     
     def highlight file, source, language, format
       format = 'terminal256' if format == 'terminal'
+      
       LIBRARY.highlight(source, language, format)
     end
     

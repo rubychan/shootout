@@ -4,6 +4,7 @@ module Adapters
     
     def highlight file, source, language, format
       return if format == 'null'
+      
       LIBRARY.colorize(source, language, format)
     end
   end

@@ -5,7 +5,7 @@ module Adapters
     end
     
     def version
-      @version ||= installed? ? `#{executable} --version 2>&1`[/[\d.]+/] : 'n/a'
+      @version ||= installed? ? `gem li rouge`[/\b\d+\.\d+\.\d+(?!\.)/] : 'n/a'
     end
     
     def name
@@ -13,14 +13,16 @@ module Adapters
     end
     
     def executable
-      "#{fast_ruby} -I ../lib/rouge ../rouge/bin/rougify"
+      "#{fast_ruby} -I ../rouge/lib/rouge ../rouge/bin/rougify"
     end
     
     def highlight file, source, language, format
       return unless installed?
       return if format == 'null'
       return if format == 'text'
-      return if format == 'terminal'
+      
+      format = 'terminal256' if format == 'terminal'
+      
       `#{executable} highlight -l #{language} -f #{format} #{file}`
     end
   end
