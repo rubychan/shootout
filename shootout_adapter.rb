@@ -19,18 +19,22 @@ class ShootoutAdapter
     library.name
   end
   
-  def benchmark file, source, language, format
+  def benchmark file, source, language, format, repeats, disable_gc
     # warmup and check
     unless highlight file, "test\n<42>", language, format
       return
     end
     
+    GC.disable if disable_gc
+    
     # benchmark
     Benchmark.realtime do
-      REPEATS.times do
+      repeats.times do
         highlight file, source, language, format
       end
-    end / REPEATS
+    end / repeats
+  ensure
+    GC.enable && GC.start if disable_gc
   end
   
   def highlight file, source, language, format
