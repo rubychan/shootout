@@ -7,7 +7,7 @@ require_relative 'shootout_adapter'
 
 SHOOTERS  = ENV.fetch('SHOOTERS',  'CodeRay CodeRayExe Rouge Rougify Albino Pygments.rb Pygmentize Highlight').split
 LANGUAGES = ENV.fetch('LANGUAGES') { Dir[File.expand_path('../example-code/*', __FILE__)].map { |path| File.basename path, '.*' }.sort.join(' ') }.split
-FORMATS   = ENV.fetch('FORMATS',   'text terminal html').split # "null" is not supported by Pygments
+FORMATS   = ENV.fetch('FORMATS',   'text terminal html').split
 REPEATS   = ENV.fetch('REPEATS',   2).to_i
 SIZES     = Array(eval(ENV.fetch('SIZES', ENV.fetch('SIZE', '-1'))))
 SET_GC    = ENV.fetch('GC', 'enable')
@@ -16,7 +16,7 @@ SHOOTER_ADAPTERS = ShootoutAdapter.load(SHOOTERS)
 
 puts
 puts "                       Welcome to"
-puts "  ~~~ The Great Syntax Highlighter Shootout v1.2 ~~~"
+puts "  ~~~ The Great Syntax Highlighter Shootout v1.3 ~~~"
 puts
 puts "using Ruby #{RUBY_VERSION} and Python #{`python -V 2>&1`[/[\d.]+/]}, repeating #{REPEATS} times"
 puts
