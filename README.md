@@ -62,11 +62,6 @@ RUBY (216 kB)
 => text               3338 kB/s            306 kB/s            328 kB/s            384 kB/s            326 kB/s                    
 => terminal           2515 kB/s            295 kB/s            272 kB/s            317 kB/s            266 kB/s            543 kB/s
 => html               1840 kB/s            261 kB/s            278 kB/s            321 kB/s            274 kB/s            558 kB/s
-
-TEXT (0 kB)
-=> text                202 kB/s           1017 kB/s              0 kB/s             36 kB/s              0 kB/s                    
-=> terminal            183 kB/s            101 kB/s              0 kB/s             46 kB/s              0 kB/s              3 kB/s
-=> html                 18 kB/s            577 kB/s              0 kB/s             17 kB/s              0 kB/s              3 kB/s
 ```
 
 ## Configure
