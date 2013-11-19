@@ -28,6 +28,7 @@ LANGUAGES.each do |language|
   begin
     puts
     file = Pathname.glob(File.expand_path("../example-code/#{language}.*", __FILE__)).first
+    raise "File not found: example-code/#{language}.*" unless file
     source = file.read
     
     if ENV['SIZE']
