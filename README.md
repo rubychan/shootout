@@ -78,7 +78,8 @@ You can adjust the benchmark using these environment variables:
 - `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available for some highlighters, and is supposed to measure scanner/lexer time only.
 - `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
 - `METRIC=time`: Show measured times instead of speed.
-- `SIZE`: The size of the input, in bytes. Defaults to the size of the example files.
+- `SIZES`: The sizes of the inputs, in bytes. For negative numbers, the example files are taken as is. For positive numbers, inputs are cut after the given number of bytes. The value be a single integer (`42`), a list (`[100, 200, 300, -1]`), or any other Ruby expression returning a list of integers (`500.step(10000, 500)`). Defaults to `-1` (no cutting).
+- `GC`: Whether to use the Ruby garbage collector during benchmarks. This may or may not give you more predictable results. Set to `disabled` to disable the GC. Defaults to `enable`.
 
 Additionally, you can configure which versions to use:
 
