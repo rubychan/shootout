@@ -4,12 +4,13 @@
 
 - [CodeRay](https://github.com/rubychan/coderay)
 - [Rouge](https://github.com/jayferd/rouge)
-- [Albino](https://github.com/github/albino)
 - [Pygments.rb](https://github.com/tmm1/pygments.rb)
-- [Pygments](https://bitbucket.org/birkenfeld/pygments-main)
-- [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html)
+- [Albino](https://github.com/github/albino) (optional)
+- [Pygments](https://bitbucket.org/birkenfeld/pygments-main) (optional)
+- [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html) (optional)
 
 Feel free to add more libraries by writing an [adapter](https://github.com/rubychan/shootout/tree/master/adapters)!
+
 
 ## Install
 
@@ -19,18 +20,24 @@ Make sure you have Ruby 2.0 and Python installed.
 
 Then, run `bundle` to install the necessary Gems.
 
-Optional: Install [Pygments](http://pygments.org/) and [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html).
 
-### OS X
+## Additional highlighters
+
+You need to have [Pygments](http://pygments.org/) and [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html) installed to test them.
+
+### …on OS X
 
 ```
 [sudo] easy_install pygments
 brew install highlight
 ```
 
+Add `SHOOTERS=all` when running the benchmark, because they are not included in the benchmark by default.
+
 ### more systems
 
 Please add instructions for your system.
+
 
 ## Run
 
@@ -38,40 +45,36 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.1 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.4 ~~~
 
-using Ruby 2.0.0 and Python 2.7.5, repeating 2 times
+using Ruby 2.0.0 and Python 2.7.5, repeating 5 times
 
-                  CodeRay 1.1.0         Rouge 1.1.0        Albino 1.3.3   Pygments.rb 0.5.4      pygmentize 1.6      highlight 3.14
+                  CodeRay 1.1.0         Rouge 1.1.0   Pygments.rb 0.5.4
    C (218 kB)
-=> text               2311 kB/s            139 kB/s            261 kB/s            291 kB/s            259 kB/s                    
-=> terminal           2056 kB/s            134 kB/s            189 kB/s            202 kB/s            188 kB/s            784 kB/s
-=> html               1233 kB/s            119 kB/s            201 kB/s            220 kB/s            200 kB/s            779 kB/s
+=> terminal           2147 kB/s            136 kB/s            204 kB/s
+=> html               1398 kB/s            122 kB/s            218 kB/s
 
 HTML (218 kB)
-=> text               2338 kB/s            328 kB/s            734 kB/s           1059 kB/s            760 kB/s                    
-=> terminal           1398 kB/s            308 kB/s            431 kB/s            517 kB/s            427 kB/s           1005 kB/s
-=> html                627 kB/s            226 kB/s            475 kB/s            578 kB/s            467 kB/s           1031 kB/s
+=> terminal           1462 kB/s            318 kB/s            513 kB/s
+=> html                682 kB/s            238 kB/s            581 kB/s
 
 JSON (217 kB)
-=> text               2622 kB/s            316 kB/s            626 kB/s            858 kB/s            619 kB/s                    
-=> terminal           1589 kB/s            289 kB/s            354 kB/s            403 kB/s            342 kB/s            544 kB/s
-=> html                737 kB/s            216 kB/s            384 kB/s            457 kB/s            392 kB/s            538 kB/s
+=> terminal           1729 kB/s            293 kB/s            398 kB/s
+=> html                801 kB/s            223 kB/s            455 kB/s
 
 RUBY (216 kB)
-=> text               3338 kB/s            306 kB/s            328 kB/s            384 kB/s            326 kB/s                    
-=> terminal           2515 kB/s            295 kB/s            272 kB/s            317 kB/s            266 kB/s            543 kB/s
-=> html               1840 kB/s            261 kB/s            278 kB/s            321 kB/s            274 kB/s            558 kB/s
+=> terminal           2887 kB/s            303 kB/s            316 kB/s
+=> html               2183 kB/s            276 kB/s            321 kB/s
 ```
 
 ## Configure
 
 You can adjust the benchmark using these environment variables:
 
-- `SHOOTERS`: A list of libraries that you want to test against each other. Defaults to `"CodeRay Rouge Albino Pygments.rb Pygmentize Highlight"`.
+- `SHOOTERS`: A list of libraries that you want to test against each other. Available are: `CodeRay`, `CodeRayExe`, `Rouge`, `Rougify`, `Albino`, `Pygments.rb`, `Pygmentize`, and `Highlight`. Defaults to `"CodeRay Rouge Pygments.rb"`.
 - `LANGUAGES`: A list of input languages. Defaults to all languages in the `example-code` folder.
-- `FORMATS`: A list of output formats/encoders. Defaults to `text`, `terminal`, and `html`. `null` is also available for some highlighters, and is supposed to measure scanner/lexer time only.
-- `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 2.
+- `FORMATS`: A list of output formats/encoders. Defaults to `"terminal html"`. `text` and `null` are also available for some highlighters, and are supposed to measure scanner/lexer time only.
+- `REPEATS`: The accuracy: How many times each test is repeated. The result is the average speed of all runs. Defaults to 5.
 - `METRIC=time`: Show measured times instead of speed.
 - `SIZES`: The sizes of the inputs, in bytes. For negative numbers, the example files are taken as is. For positive numbers, inputs are cut after the given number of bytes. The value be a single integer (`42`), a list (`[100, 200, 300, -1]`), or any other Ruby expression returning a list of integers (`500.step(10000, 500)`). Defaults to `-1` (no cutting).
 - `GC`: Whether to use the Ruby garbage collector during benchmarks. This may or may not give you more predictable results. Set to `disabled` to disable the GC. Defaults to `enable`.
