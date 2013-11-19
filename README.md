@@ -42,31 +42,31 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 using Ruby 2.0.0 and Python 2.7.5, repeating 2 times
 
-                  CodeRay 1.0.9         Rouge 0.4.0        Albino 1.3.3   Pygments.rb 0.5.2      pygmentize 1.6      highlight 3.14
+                  CodeRay 1.1.0         Rouge 1.1.0        Albino 1.3.3   Pygments.rb 0.5.4      pygmentize 1.6      highlight 3.14
    C (218 kB)
-=> text               2674 kB/s            146 kB/s            267 kB/s            290 kB/s            265 kB/s                    
-=> terminal           1291 kB/s            140 kB/s            189 kB/s            205 kB/s            186 kB/s            792 kB/s
-=> html               1385 kB/s            124 kB/s            199 kB/s            220 kB/s            200 kB/s            785 kB/s
+=> text               2311 kB/s            139 kB/s            261 kB/s            291 kB/s            259 kB/s                    
+=> terminal           2056 kB/s            134 kB/s            189 kB/s            202 kB/s            188 kB/s            784 kB/s
+=> html               1233 kB/s            119 kB/s            201 kB/s            220 kB/s            200 kB/s            779 kB/s
 
 HTML (218 kB)
-=> text               2446 kB/s            252 kB/s            761 kB/s           1046 kB/s            765 kB/s                    
-=> terminal            380 kB/s            238 kB/s            437 kB/s            524 kB/s            426 kB/s           1036 kB/s
-=> html                690 kB/s            190 kB/s            479 kB/s            595 kB/s            457 kB/s           1036 kB/s
+=> text               2338 kB/s            328 kB/s            734 kB/s           1059 kB/s            760 kB/s                    
+=> terminal           1398 kB/s            308 kB/s            431 kB/s            517 kB/s            427 kB/s           1005 kB/s
+=> html                627 kB/s            226 kB/s            475 kB/s            578 kB/s            467 kB/s           1031 kB/s
 
 JSON (217 kB)
-=> text               2832 kB/s            238 kB/s            637 kB/s            850 kB/s            641 kB/s                    
-=> terminal            746 kB/s            226 kB/s            354 kB/s            402 kB/s            347 kB/s            539 kB/s
-=> html                821 kB/s            173 kB/s            390 kB/s            467 kB/s            390 kB/s            533 kB/s
+=> text               2622 kB/s            316 kB/s            626 kB/s            858 kB/s            619 kB/s                    
+=> terminal           1589 kB/s            289 kB/s            354 kB/s            403 kB/s            342 kB/s            544 kB/s
+=> html                737 kB/s            216 kB/s            384 kB/s            457 kB/s            392 kB/s            538 kB/s
 
 RUBY (216 kB)
-=> text               3402 kB/s            273 kB/s            330 kB/s            395 kB/s            324 kB/s                    
-=> terminal           1009 kB/s            265 kB/s            267 kB/s            320 kB/s            266 kB/s            561 kB/s
-=> html               2174 kB/s            246 kB/s            278 kB/s            309 kB/s            278 kB/s            544 kB/s
+=> text               3338 kB/s            306 kB/s            328 kB/s            384 kB/s            326 kB/s                    
+=> terminal           2515 kB/s            295 kB/s            272 kB/s            317 kB/s            266 kB/s            543 kB/s
+=> html               1840 kB/s            261 kB/s            278 kB/s            321 kB/s            274 kB/s            558 kB/s
 
 TEXT (0 kB)
-=> text                246 kB/s            698 kB/s              0 kB/s             39 kB/s              0 kB/s                    
-=> terminal            296 kB/s            353 kB/s              0 kB/s             59 kB/s              0 kB/s              3 kB/s
-=> html                 23 kB/s            714 kB/s              0 kB/s             27 kB/s              0 kB/s              3 kB/s
+=> text                202 kB/s           1017 kB/s              0 kB/s             36 kB/s              0 kB/s                    
+=> terminal            183 kB/s            101 kB/s              0 kB/s             46 kB/s              0 kB/s              3 kB/s
+=> html                 18 kB/s            577 kB/s              0 kB/s             17 kB/s              0 kB/s              3 kB/s
 ```
 
 ## Configure
@@ -80,12 +80,16 @@ You can adjust the benchmark using these environment variables:
 - `METRIC=time`: Show measured times instead of speed.
 - `SIZE`: The size of the input, in bytes. Defaults to the size of the example files.
 
-If you want to use a different version of an installed gem, you can set it with `ROUGE=0.3.5` _before_ the `rake`.
+Additionally, you can configure which versions to use:
+
+- If you want to use a different version of an installed gem, you can set it with `ROUGE=0.3.5`.
+- If you want to use a local checkout, set `LOCAL_ROUGE=1` or `LOCAL_CODERAY=1`.
+- Both options must be give _before_ the `rake` to affect bundler.
 
 Example:
 
 ```bash
-CODERAY=1.1.0.rc5 rake REPEATS=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FORMATS="null html"
+CODERAY=1.0.9 rake REPEATS=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FORMATS="null html"
 ```
 
 outputs:
@@ -96,11 +100,12 @@ outputs:
 
 using Ruby 2.0.0 and Python 2.7.5, repeating 1 times
 
-                  CodeRay 1.1.0      highlight 3.14
-HTML (1091 kB)
-=> null               3015 kB/s                    
-=> html                791 kB/s           1160 kB/s
+                  CodeRay 1.0.9      highlight 3.14
+HTML (218 kB)
+=> null               2629 kB/s                    
+=> html                690 kB/s           1003 kB/s
 ```
+
 ## License
 
 This is free and unencumbered software released into the public domain (see LICENSE).
