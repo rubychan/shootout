@@ -22,6 +22,7 @@ module Adapters
     
     def highlight file, source, language, format
       return unless installed?
+      return if language == 'perl'
       
       format = 'HTML' if format == 'html' && version >= '1.1.0'
       

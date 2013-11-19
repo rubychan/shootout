@@ -19,6 +19,7 @@ module Adapters
       
       format = 'ansi' if format == 'terminal'
       language = 'js' if language == 'json'
+      language = 'js' if language == 'javascript'
       
       `highlight -S #{language} -O #{format} -f -i #{file}`
     end
