@@ -45,26 +45,38 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.4 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.5 ~~~
 
 using Ruby 2.0.0 and Python 2.7.5, repeating 5 times
 
                   CodeRay 1.1.0         Rouge 1.1.0   Pygments.rb 0.5.4
    C (218 kB)
-=> terminal           2147 kB/s            136 kB/s            204 kB/s
-=> html               1398 kB/s            122 kB/s            218 kB/s
+=> terminal           2116 kB/s            139 kB/s            205 kB/s
+=> html               1427 kB/s            126 kB/s            217 kB/s
+
+ CSS (218 kB)
+=> terminal           1625 kB/s            255 kB/s            317 kB/s
+=> html               1211 kB/s            211 kB/s            346 kB/s
 
 HTML (218 kB)
-=> terminal           1462 kB/s            318 kB/s            513 kB/s
-=> html                682 kB/s            238 kB/s            581 kB/s
+=> terminal           1504 kB/s            319 kB/s            519 kB/s
+=> html                686 kB/s            240 kB/s            578 kB/s
+
+JAVASCRIPT (218 kB)
+=> terminal           1437 kB/s            168 kB/s            256 kB/s
+=> html               1059 kB/s            151 kB/s            281 kB/s
 
 JSON (217 kB)
-=> terminal           1729 kB/s            293 kB/s            398 kB/s
-=> html                801 kB/s            223 kB/s            455 kB/s
+=> terminal           1710 kB/s            299 kB/s            398 kB/s
+=> html                784 kB/s            222 kB/s            455 kB/s
+
+PERL (217 kB)
+=> terminal                                157 kB/s            255 kB/s
+=> html                                    145 kB/s            267 kB/s
 
 RUBY (216 kB)
-=> terminal           2887 kB/s            303 kB/s            316 kB/s
-=> html               2183 kB/s            276 kB/s            321 kB/s
+=> terminal           2771 kB/s            305 kB/s            314 kB/s
+=> html               2066 kB/s            278 kB/s            323 kB/s
 ```
 
 ## Configure
@@ -95,11 +107,6 @@ CODERAY=1.0.9 rake REPEATS=1 SHOOTERS="CodeRay Highlight" LANGUAGES=html FORMATS
 outputs:
 
 ```
-                       Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.1 ~~~
-
-using Ruby 2.0.0 and Python 2.7.5, repeating 1 times
-
                   CodeRay 1.0.9      highlight 3.14
 HTML (218 kB)
 => null               2629 kB/s                    
