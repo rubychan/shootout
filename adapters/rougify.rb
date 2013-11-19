@@ -16,7 +16,7 @@ module Adapters
       if ENV['LOCAL_ROUGE']
         "#{fast_ruby} -I ../rouge/lib/rouge ../rouge/bin/rougify"
       else
-        "#{fast_ruby} -S rougify"
+        "#{fast_ruby} -S rougify _#{ENV['ROUGE']}_"
       end
     end
     

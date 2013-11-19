@@ -16,7 +16,7 @@ module Adapters
       if ENV['LOCAL_CODERAY']
         "#{fast_ruby} -I ../coderay/lib/coderay ../coderay/bin/coderay"
       else
-        "#{fast_ruby} -S coderay"
+        "#{fast_ruby} -S coderay _#{ENV['CODERAY']}_"
       end
     end
     

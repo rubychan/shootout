@@ -80,6 +80,7 @@ Additionally, you can configure which versions to use:
 
 - If you want to use a different version of an installed gem, you can set it with `ROUGE=0.3.5`.
 - If you want to use a local checkout, set `LOCAL_ROUGE=1` or `LOCAL_CODERAY=1`.
+- Both options will also affect the executable shooters (Rougify and CodeRayExe).
 - Both options must be give _before_ the `rake` to affect bundler.
 
 Example:
