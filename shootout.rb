@@ -65,7 +65,7 @@ for size in SIZES
           puts '%4s (%d repeats)' % [language.upcase, repeats]
         end
       else
-        puts '%4s (%d kB)' % [language.upcase, source.size / 1000]
+        puts '%s (%d kB)' % [language.upcase, source.size / 1000]
       end
       
       for format in FORMATS

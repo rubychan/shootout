@@ -50,11 +50,11 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 using Ruby 2.0.0 and Python 2.7.5, repeating 5 times
 
                   CodeRay 1.1.0         Rouge 1.1.0   Pygments.rb 0.5.4
-   C (218 kB)
+C (218 kB)
 => terminal           2116 kB/s            139 kB/s            205 kB/s
 => html               1427 kB/s            126 kB/s            217 kB/s
 
- CSS (218 kB)
+CSS (218 kB)
 => terminal           1625 kB/s            255 kB/s            317 kB/s
 => html               1211 kB/s            211 kB/s            346 kB/s
 
