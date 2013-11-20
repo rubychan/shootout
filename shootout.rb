@@ -17,7 +17,7 @@ SHOOTER_ADAPTERS = ShootoutAdapter.load(SHOOTERS)
 
 puts
 puts "                       Welcome to"
-puts "  ~~~ The Great Syntax Highlighter Shootout v1.5 ~~~"
+puts "  ~~~ The Great Syntax Highlighter Shootout v1.6 ~~~"
 puts
 puts "using Ruby #{RUBY_VERSION} and Python #{`python -V 2>&1`[/[\d.]+/]}, repeating #{REPEATS} times"
 puts
@@ -42,6 +42,8 @@ for size in SIZES
   else
     repeats = REPEATS
   end
+  
+  scores = Hash.new { |h, k| h[k] = [] }
   
   LANGUAGES.each do |language|
     begin
@@ -73,12 +75,15 @@ for size in SIZES
         print '=> %-8s' % [format]
         for shooter in SHOOTER_ADAPTERS
           if time = shooter.benchmark(file, source, language, format, repeats, SET_GC == 'disable')
+            score = (source.size / time) / 1000
+            scores[shooter.name] << score
             if ENV['METRIC'] == 'time'
               print '%17.2f ms' % [time * 1000]
             else
-              print '%15.0f kB/s' % [(source.size / time) / 1000]
+              print '%15.0f kB/s' % [score]
             end
           else
+            scores[shooter.name] ||= []
             print ' ' * 20
           end
         end
@@ -88,4 +93,23 @@ for size in SIZES
       size_file.delete if size_file
     end
   end
+  
+  puts '-' * (11 + 20 * scores.size)
+  
+  print '%-11s' % ["Total score"]
+  average_scores = {}
+  for name, shooter_scores in scores
+    if shooter_scores.empty?
+      average_scores[name] = 0
+    else
+      average_scores[name] = shooter_scores.reduce(:+) / shooter_scores.size
+    end
+  end
+  
+  max_average_score = average_scores.values.max
+  for name, average_score in average_scores
+    best = (average_score == max_average_score)
+    print "\e[#{best ? 35 : 36}m%15.0f kB/s\e[0m" % [average_score]
+  end
+  puts
 end
