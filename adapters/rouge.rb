@@ -20,9 +20,11 @@ module Adapters
         def initialize(opts={})
         end
         
-        def stream(tokens, &b)
+        def format(tokens, &b)
           tokens.each do |tok, val|
           end
+          
+          ''
         end
       end
       
