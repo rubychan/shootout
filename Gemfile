@@ -9,8 +9,8 @@ end
 if ENV['LOCAL_ROUGE']
   gem 'rouge', :path => ENV['LOCAL_ROUGE']
 else
-  gem 'rouge', ENV.fetch('ROUGE', '1.1.0')
+  gem 'rouge', ENV.fetch('ROUGE', '1.7.2')
 end
 
-gem 'pygments.rb', ENV.fetch('PYGMENTSRB', '0.5.4')
+gem 'pygments.rb', ENV.fetch('PYGMENTSRB', '0.6.0')
 gem 'albino',      ENV.fetch('ALBINO',     '1.3.3')
