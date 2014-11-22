@@ -26,6 +26,7 @@ class ShootoutAdapter
     end
     
     GC.disable if disable_gc
+    require 'profile' if ENV['PROFILE']
     
     # benchmark
     Benchmark.realtime do
