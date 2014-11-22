@@ -103,7 +103,6 @@ for size in SIZES
   
   puts '-' * (11 + 20 * scores.size)
   
-  print '%-11s' % ["Total score"]
   average_scores = {}
   for name, shooter_scores in scores
     if shooter_scores.empty?
@@ -114,9 +113,21 @@ for size in SIZES
   end
   
   max_average_score = average_scores.values.max
+  
+  print '%-11s' % ["Total score"]
   for name, average_score in average_scores
     best = (average_score == max_average_score)
     print "\e[#{best ? 35 : 36}m%15.0f kB/s\e[0m" % [average_score]
+  end
+  puts
+  
+  print '%-11s' % ["Relative"]
+  for name, average_score in average_scores
+    if average_score == max_average_score
+      print ' ' * 20
+    else
+      print "%19.0f%%" % [100 * average_score / max_average_score]
+    end
   end
   puts
 end
