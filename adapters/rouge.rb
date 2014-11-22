@@ -25,9 +25,7 @@ module Adapters
           end
         end
       end
-    end
-    
-    module Formatters
+      
       class Text < LIBRARY::Formatter
         # Output as plain text.
         tag 'text'
