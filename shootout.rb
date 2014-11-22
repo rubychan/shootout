@@ -46,10 +46,17 @@ for size in SIZES
   scores = Hash.new { |h, k| h[k] = [] }
   
   LANGUAGES.each do |language|
+    if scanner_version = language[/:(\d+)$/, 1]
+      file_name = $`
+      scanner = file_name + scanner_version
+    else
+      file_name = scanner = language
+    end
+    
     begin
       puts if SIZES.size == 1
-      file = Pathname.glob(File.expand_path("../example-code/#{language}.*", __FILE__)).first
-      raise "File not found: example-code/#{language}.*" unless file
+      file = Pathname.glob(File.expand_path("../example-code/#{file_name}.*", __FILE__)).first
+      raise "File not found: example-code/#{file_name}.*" unless file
       source = file.read
       
       if size >= 0
@@ -62,19 +69,19 @@ for size in SIZES
       
       if SIZES.size > 1
         if size < 0
-          puts '%4s (%d kB, %d repeats)' % [language.upcase, source.size / 1000, repeats]
+          puts '%4s (%d kB, %d repeats)' % [scanner.upcase, source.size / 1000, repeats]
         else
-          puts '%4s (%d repeats)' % [language.upcase, repeats]
+          puts '%4s (%d repeats)' % [scanner.upcase, repeats]
         end
       else
-        puts '%s (%d kB)' % [language.upcase, source.size / 1000]
+        puts '%s (%d kB)' % [scanner.upcase, source.size / 1000]
       end
       
       for format in FORMATS
         print "\e[#{31 + FORMATS.index(format)}m"
         print '=> %-8s' % [format]
         for shooter in SHOOTER_ADAPTERS
-          if time = shooter.benchmark(file, source, language, format, repeats, SET_GC == 'disable')
+          if time = shooter.benchmark(file, source, scanner, format, repeats, SET_GC == 'disable')
             score = (source.size / time) / 1000
             scores[shooter.name] << score
             if ENV['METRIC'] == 'time'
