@@ -3,7 +3,7 @@ module Adapters
     LIBRARY = ::CodeRay
     
     def highlight file, source, language, format
-      return if language == 'perl'
+      return if LIBRARY.scanner(language).is_a? LIBRARY::Scanners.default
       
       LIBRARY.encode(source, language, format)
     end
