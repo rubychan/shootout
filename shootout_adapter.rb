@@ -29,11 +29,13 @@ class ShootoutAdapter
     require 'profile' if ENV['PROFILE']
     
     # benchmark
-    Benchmark.realtime do
+    time = Benchmark.realtime do
       repeats.times do
-        highlight file, source, language, format
+        @result = highlight file, source, language, format
       end
-    end / repeats
+    end
+    
+    time / repeats
   ensure
     GC.enable && GC.start if disable_gc
   end
