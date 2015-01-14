@@ -9,7 +9,7 @@ end
 if ENV['LOCAL_ROUGE']
   gem 'rouge', :path => ENV['LOCAL_ROUGE']
 else
-  gem 'rouge', ENV.fetch('ROUGE', '1.7.2')
+  gem 'rouge', ENV.fetch('ROUGE', '~> 1.7.7')
 end
 
 gem 'pygments.rb', ENV.fetch('PYGMENTSRB', '0.6.0')
