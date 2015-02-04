@@ -9,6 +9,8 @@
 - [Pygments](https://bitbucket.org/birkenfeld/pygments-main) (optional)
 - [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html) (optional)
 
+[![Dependency Status](https://gemnasium.com/rubychan/shootout.svg)](https://gemnasium.com/rubychan/shootout)
+
 Feel free to add more libraries by writing an [adapter](https://github.com/rubychan/shootout/tree/master/adapters)!
 
 
