@@ -1,5 +1,7 @@
 # shootout
 
+![screenshot_05](https://cloud.githubusercontent.com/assets/1037292/6815041/4306ce7c-d285-11e4-9c8a-99f74e8f63bf.jpg)
+
 …benchmarks different syntax highlighter libraries, namely:
 
 - [CodeRay](https://github.com/rubychan/coderay)
