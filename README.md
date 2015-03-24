@@ -1,6 +1,6 @@
 # shootout
 
-![screenshot_05](https://cloud.githubusercontent.com/assets/1037292/6815041/4306ce7c-d285-11e4-9c8a-99f74e8f63bf.jpg)
+![screenshot_05](https://cloud.githubusercontent.com/assets/1037292/6815049/68c09fda-d285-11e4-8df4-c7ffc2b6fd29.jpg)
 
 …benchmarks different syntax highlighter libraries, namely:
 
