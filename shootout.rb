@@ -78,14 +78,20 @@ for size in SIZES
       end
       
       for format in FORMATS
+        first_score = nil
+        
         print "\e[#{31 + FORMATS.index(format)}m"
         print '=> %-8s' % [format]
         for shooter in SHOOTER_ADAPTERS
           if time = shooter.benchmark(file, source, scanner, format, repeats, SET_GC == 'disable')
             score = (source.size / time) / 1000
+            first_score = score unless first_score
             scores[shooter.name] << score
-            if ENV['METRIC'] == 'time'
+            case ENV['METRIC']
+            when 'time'
               print '%17.2f ms' % [time * 1000]
+            when 'diff'
+              print '%18.2f %%' % [score / first_score * 100]
             else
               print '%15.0f kB/s' % [score]
             end
@@ -126,7 +132,7 @@ for size in SIZES
     if average_score == max_average_score
       print ' ' * 20
     else
-      print "%19.0f%%" % [100 * average_score / max_average_score]
+      print "%18.2f %%" % [100 * average_score / max_average_score]
     end
   end
   puts
