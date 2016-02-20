@@ -18,7 +18,7 @@ Feel free to add more libraries by writing an [adapter](https://github.com/rubyc
 
 ## Install
 
-Make sure you have Ruby 2.1 and Python installed.
+Make sure you have Ruby 2 and Python installed.
 
 `git clone https://github.com/rubychan/shootout.git` to get the code.
 
@@ -49,40 +49,45 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.6 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.7 ~~~
 
-using Ruby 2.0.0 and Python 2.7.5, repeating 5 times
+using Ruby 2.3.0 and Python 2.7.11, repeating 5 times
 
-                  CodeRay 1.1.0         Rouge 1.1.0   Pygments.rb 0.5.4
+                  CodeRay 1.1.1        Rouge 1.10.1   Pygments.rb 0.6.3
 C (218 kB)
-=> terminal           2237 kB/s            139 kB/s            204 kB/s
-=> html               1420 kB/s            124 kB/s            217 kB/s
+=> terminal           3862 kB/s            474 kB/s            314 kB/s
+=> html               2594 kB/s            474 kB/s            320 kB/s
 
 CSS (218 kB)
-=> terminal           1655 kB/s            254 kB/s            313 kB/s
-=> html               1203 kB/s            211 kB/s            347 kB/s
+=> terminal           2973 kB/s            935 kB/s            475 kB/s
+=> html               2157 kB/s            959 kB/s            545 kB/s
 
 HTML (218 kB)
-=> terminal           1480 kB/s            316 kB/s            518 kB/s
-=> html                681 kB/s            241 kB/s            575 kB/s
+=> terminal           3108 kB/s           1496 kB/s            873 kB/s
+=> html               1388 kB/s           1147 kB/s            983 kB/s
 
 JAVASCRIPT (218 kB)
-=> terminal           1456 kB/s            170 kB/s            255 kB/s
-=> html               1057 kB/s            150 kB/s            280 kB/s
+=> terminal           3008 kB/s            457 kB/s            433 kB/s
+=> html               2217 kB/s            459 kB/s            488 kB/s
 
 JSON (217 kB)
-=> terminal           1781 kB/s            298 kB/s            396 kB/s
-=> html                794 kB/s            224 kB/s            456 kB/s
+=> terminal           2546 kB/s            734 kB/s            550 kB/s
+=> html               1539 kB/s           1145 kB/s            761 kB/s
+
+LUA (244 kB)
+=> terminal           1859 kB/s            743 kB/s            353 kB/s
+=> html               1411 kB/s            749 kB/s            414 kB/s
 
 PERL (217 kB)
-=> terminal                                157 kB/s            255 kB/s
-=> html                                    143 kB/s            268 kB/s
+=> terminal                                514 kB/s            383 kB/s
+=> html                                    517 kB/s            395 kB/s
 
 RUBY (216 kB)
-=> terminal           2780 kB/s            306 kB/s            314 kB/s
-=> html               2081 kB/s            277 kB/s            320 kB/s
+=> terminal           5174 kB/s            990 kB/s            459 kB/s
+=> html               4064 kB/s            989 kB/s            461 kB/s
 -----------------------------------------------------------------------
-Total score           1552 kB/s            215 kB/s            337 kB/s
+Total score           2707 kB/s            799 kB/s            513 kB/s
+Relative                                    29.51 %             18.95 %
 ```
 
 ## Configure
