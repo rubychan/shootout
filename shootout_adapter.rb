@@ -1,10 +1,17 @@
 class ShootoutAdapter
   def self.load libraries
-    libraries.map do |library|
+    libraries.map do |library_and_subversion|
+      library, subversion = library_and_subversion.split(':', 2)
       library = library.gsub(/\W/, '')
       require_relative "adapters/#{library.downcase}"
-      Adapters.const_get(library).new
+      Adapters.const_get(library).new(subversion)
     end
+  end
+  
+  attr :subversion
+  
+  def initialize subversion = nil
+    @subversion = subversion
   end
   
   def library
@@ -16,10 +23,12 @@ class ShootoutAdapter
   end
   
   def name
-    library.name
+    "#{library.name}#{" (#{subversion})" if subversion}".strip
   end
   
   def benchmark file, source, language, format, repeats, disable_gc
+    language += subversion if subversion
+    
     # warmup and check
     unless highlight file, "test\n<42>", language, format
       return
