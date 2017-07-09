@@ -10,6 +10,7 @@ module Adapters
       format = 'terminal256' if format == 'terminal'
       
       LIBRARY.highlight(source, language, format)
+    rescue RuntimeError
     end
     
     module Formatters
