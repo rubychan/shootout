@@ -37,14 +37,14 @@ for size in SIZES
     else
       puts "using \e[34m%d bytes\e[0m" % [size]
     end
-    
+
     repeats = [REPEATS * SIZES.max / [size, 100].max, 1].max
   else
     repeats = REPEATS
   end
-  
+
   scores = Hash.new { |h, k| h[k] = [] }
-  
+
   LANGUAGES.each do |language|
     if scanner_version = language[/:(\d+)$/, 1]
       file_name = $`
@@ -52,13 +52,13 @@ for size in SIZES
     else
       file_name = scanner = language
     end
-    
+
     begin
       puts if SIZES.size == 1
       file = Pathname.glob(File.expand_path("../example-code/#{file_name}.*", __FILE__)).first
       raise "File not found: example-code/#{file_name}.*" unless file
       source = file.read
-      
+
       if size >= 0
         source += source until source.size >= size
         source = source[0, size]
@@ -66,7 +66,7 @@ for size in SIZES
         size_file.open('w') { |f| f.write source } unless size_file.exist?
         file = size_file
       end
-      
+
       if SIZES.size > 1
         if size < 0
           puts '%4s (%d kB, %d repeats)' % [scanner.upcase, source.size / 1000, repeats]
@@ -76,10 +76,10 @@ for size in SIZES
       else
         puts '%s (%d kB)' % [scanner.upcase, source.size / 1000]
       end
-      
+
       for format in FORMATS
         first_score = nil
-        
+
         print "\e[#{31 + FORMATS.index(format)}m"
         print '=> %-8s' % [format]
         for shooter in SHOOTER_ADAPTERS
@@ -106,9 +106,9 @@ for size in SIZES
       size_file.delete if size_file
     end
   end
-  
+
   puts '-' * (11 + 20 * scores.size)
-  
+
   average_scores = {}
   for name, shooter_scores in scores
     if shooter_scores.empty?
@@ -117,16 +117,16 @@ for size in SIZES
       average_scores[name] = shooter_scores.reduce(:+) / shooter_scores.size
     end
   end
-  
+
   max_average_score = average_scores.values.max
-  
+
   print '%-11s' % ["Total score"]
   for name, average_score in average_scores
     best = (average_score == max_average_score)
     print "\e[#{best ? 35 : 36}m%15.0f kB/s\e[0m" % [average_score]
   end
   puts
-  
+
   print '%-11s' % ["Relative"]
   for name, average_score in average_scores
     if average_score == max_average_score
