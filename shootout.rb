@@ -31,7 +31,7 @@ for size in SIZES
   if SIZES.size > 1
     puts
     if size < 0
-      puts "using \e[34mthe whole file\e[0m" % [size]
+      puts "using \e[34mthe whole file\e[0m"
     elsif size == 1
       puts "using \e[34m1 byte\e[0m"
     else
