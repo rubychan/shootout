@@ -1,4 +1,4 @@
-# shootout
+# shootout [![CodeFactor](https://www.codefactor.io/repository/github/rubychan/shootout/badge/master)](https://www.codefactor.io/repository/github/rubychan/shootout/overview/master)
 
 ![screenshot_05](https://cloud.githubusercontent.com/assets/1037292/6815049/68c09fda-d285-11e4-8df4-c7ffc2b6fd29.jpg)
 
@@ -10,8 +10,6 @@
 - [Albino](https://github.com/github/albino) (optional)
 - [Pygments](https://bitbucket.org/birkenfeld/pygments-main) (optional)
 - [Highlight](http://www.andre-simon.de/doku/highlight/en/highlight.html) (optional)
-
-[![Dependency Status](https://gemnasium.com/rubychan/shootout.svg)](https://gemnasium.com/rubychan/shootout)
 
 Feel free to add more libraries by writing an [adapter](https://github.com/rubychan/shootout/tree/master/adapters)!
 
