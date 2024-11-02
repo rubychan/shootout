@@ -13,4 +13,3 @@ else
 end
 
 gem 'pygments.rb', ENV.fetch('PYGMENTSRB', '>= 0.6.3')
-gem 'albino',      ENV.fetch('ALBINO',     '>= 1.3.3')

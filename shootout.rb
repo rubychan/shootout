@@ -12,7 +12,7 @@ REPEATS   = ENV.fetch('REPEATS',   5).to_i
 SIZES     = Array(eval(ENV.fetch('SIZES', ENV.fetch('SIZE', '-1'))))
 SET_GC    = ENV.fetch('GC', 'enable')
 
-SHOOTERS.replace %w(CodeRay CodeRayExe Rouge Rougify Albino Pygments.rb Pygmentize Highlight) if SHOOTERS.first.downcase == 'all'
+SHOOTERS.replace %w(CodeRay CodeRayExe Rouge Rougify Pygments.rb Pygmentize Highlight) if SHOOTERS.first.downcase == 'all'
 SHOOTER_ADAPTERS = ShootoutAdapter.load(SHOOTERS)
 
 puts
