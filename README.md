@@ -46,45 +46,45 @@ To run the benchmark, just run `rake`. It takes a few minutes to get this:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.7 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.8 ~~~
 
-using Ruby 2.3.0 and Python 2.7.11, repeating 5 times
+using Ruby 3.2.6 and Python 3.13.0, repeating 5 times
 
-                  CodeRay 1.1.1        Rouge 1.10.1   Pygments.rb 0.6.3
+                  CodeRay 1.1.3         Rouge 4.4.0   Pygments.rb 3.0.0
 C (218 kB)
-=> terminal           3862 kB/s            474 kB/s            314 kB/s
-=> html               2594 kB/s            474 kB/s            320 kB/s
+=> terminal           8197 kB/s            809 kB/s            947 kB/s
+=> html               5794 kB/s            867 kB/s            959 kB/s
 
 CSS (218 kB)
-=> terminal           2973 kB/s            935 kB/s            475 kB/s
-=> html               2157 kB/s            959 kB/s            545 kB/s
+=> terminal           5484 kB/s           1485 kB/s           1925 kB/s
+=> html               4646 kB/s           1829 kB/s           2331 kB/s
 
 HTML (218 kB)
-=> terminal           3108 kB/s           1496 kB/s            873 kB/s
-=> html               1388 kB/s           1147 kB/s            983 kB/s
+=> terminal           5903 kB/s           2016 kB/s           2902 kB/s
+=> html               3474 kB/s           1989 kB/s           3218 kB/s
 
 JAVASCRIPT (218 kB)
-=> terminal           3008 kB/s            457 kB/s            433 kB/s
-=> html               2217 kB/s            459 kB/s            488 kB/s
+=> terminal           5447 kB/s            143 kB/s           1244 kB/s
+=> html               4737 kB/s            144 kB/s           1288 kB/s
 
 JSON (217 kB)
-=> terminal           2546 kB/s            734 kB/s            550 kB/s
-=> html               1539 kB/s           1145 kB/s            761 kB/s
+=> terminal           6514 kB/s           1700 kB/s           3822 kB/s
+=> html               4060 kB/s           1935 kB/s           5296 kB/s
 
 LUA (244 kB)
-=> terminal           1859 kB/s            743 kB/s            353 kB/s
-=> html               1411 kB/s            749 kB/s            414 kB/s
+=> terminal           3973 kB/s           1214 kB/s           2309 kB/s
+=> html               3452 kB/s           1339 kB/s           2342 kB/s
 
 PERL (217 kB)
-=> terminal                                514 kB/s            383 kB/s
-=> html                                    517 kB/s            395 kB/s
+=> terminal                                759 kB/s           1321 kB/s
+=> html                                    802 kB/s           1346 kB/s
 
 RUBY (216 kB)
-=> terminal           5174 kB/s            990 kB/s            459 kB/s
-=> html               4064 kB/s            989 kB/s            461 kB/s
+=> terminal          11352 kB/s           1667 kB/s           1589 kB/s
+=> html               8707 kB/s           1752 kB/s           1645 kB/s
 -----------------------------------------------------------------------
-Total score           2707 kB/s            799 kB/s            513 kB/s
-Relative                                    29.51 %             18.95 %
+Total score           5839 kB/s           1278 kB/s           2155 kB/s
+Relative                                    21.89 %             36.91 %
 ```
 
 ## Configure
@@ -117,16 +117,17 @@ outputs:
 
 ```
                        Welcome to
-  ~~~ The Great Syntax Highlighter Shootout v1.6 ~~~
+  ~~~ The Great Syntax Highlighter Shootout v1.8 ~~~
 
-using Ruby 2.0.0 and Python 2.7.5, repeating 1 times
+using Ruby 3.2.6 and Python 3.13.0, repeating 1 times
 
-                  CodeRay 1.0.9         Rouge 1.1.0
+                  CodeRay 1.0.9         Rouge 4.4.0
 HTML (218 kB)
-=> text               2183 kB/s            344 kB/s
-=> html                697 kB/s            242 kB/s
+=> text               7927 kB/s           2718 kB/s
+=> html               3501 kB/s           1933 kB/s
 ---------------------------------------------------
-Total score           1440 kB/s            293 kB/s
+Total score           5714 kB/s           2325 kB/s
+Relative                                    40.70 %
 ```
 
 ## License
