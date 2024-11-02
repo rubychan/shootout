@@ -16,7 +16,7 @@ Feel free to add more libraries by writing an [adapter](https://github.com/rubyc
 
 ## Install
 
-Make sure you have Ruby 2 and Python installed.
+Make sure you have Ruby 2+ and Python 3 installed.
 
 `git clone https://github.com/rubychan/shootout.git` to get the code.
 

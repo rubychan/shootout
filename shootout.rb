@@ -19,7 +19,7 @@ puts
 puts "                       Welcome to"
 puts "  ~~~ The Great Syntax Highlighter Shootout v1.7 ~~~"
 puts
-puts "using Ruby #{RUBY_VERSION} and Python #{`python -V 2>&1`[/[\d.]+/]}, repeating #{REPEATS} times"
+puts "using Ruby #{RUBY_VERSION} and Python #{`python3 -V 2>&1`[/[\d.]+/]}, repeating #{REPEATS} times"
 puts
 
 print '%11s' % ['']
